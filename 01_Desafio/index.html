@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio 01</title>
+    <script src="./redux.js"></script>
+    <script src="https://unpkg.com/immer"></script>
+  </head>
+  <body>
+    <h1 id="aluno">Aluno</h1>
+    <h1 id="aulas">Aulas</h1>
+    <script type="module">
+      import { incrementarTempo, reduzirTempo, modificarEmail } from './store/aluno.js';
+      import { completarAula, completarCurso, resetarCurso } from './store/aulas.js'
+
+      import store from './store/configureStore.js';
+
+      function render() {
+        const { aluno, aulas } = store.getState();
+
+        const alunoEl = document.getElementById('aluno');
+        const aulasEl = document.getElementById('aulas');
+
+        alunoEl.innerText = `${aluno.nome} : ${aluno.email} : ${aluno.diasRestantes}`;
+        aulasEl.innerText = aulas.filter((aula) => aula.completa === true).length;
+      }
+
+      render()
+
+      store.subscribe(render);
+
+      
+      store.dispatch(resetarCurso());
+      store.dispatch(completarAula(3));
+      store.dispatch(completarCurso());
+      store.dispatch(reduzirTempo());
+      store.dispatch(incrementarTempo());
+      store.dispatch(incrementarTempo());
+      store.dispatch(modificarEmail('joao@origamid.com'));
+
+    </script>
+  </body>
+</html>
