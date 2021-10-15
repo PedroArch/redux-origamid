@@ -1,12 +1,13 @@
 import { configureStore, getDefaultMiddleware, combineReducers } from "@reduxjs/toolkit";
 import login from './login'
+import photos from './photos'
 import localStorage from "./middleware/localStorage";
 
 // import localStorage from './middleware/localStorage'
 
 const middleware = [...getDefaultMiddleware(), localStorage]
 
-const reducer = combineReducers({login})
+const reducer = combineReducers({login, photos})
 
 const store = configureStore({reducer, middleware})
 

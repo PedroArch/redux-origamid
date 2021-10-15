@@ -1,0 +1,32 @@
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  grid-template-rows: 50px;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  padding-right: 1rem;
+}
+
+.img {
+  max-width: 100%;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0; 
+}
+
+.access {
+  font-family: monospace;
+  font-size: .875rem;
+  color: #999
+
+}
